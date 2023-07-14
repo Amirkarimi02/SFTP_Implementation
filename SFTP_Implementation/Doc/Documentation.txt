@@ -1,0 +1,94 @@
+﻿# SFTP Implementation
+
+## Overview
+
+The SFTP Implementation project is a .NET console application that provides functionality to interact with an SFTP server. It allows users to perform various operations such as uploading files, downloading files, managing directories, and more.
+
+## Features
+
+- Securely connect to an SFTP server using SSH.NET library.
+- Authenticate with the server using username and password credentials.
+- Upload files to the server.
+- Download files from the server.
+- Delete files from the server.
+- Rename files on the server.
+- Create directories on the server.
+- Delete directories from the server.
+
+## Prerequisites
+
+- .NET 7 SDK installed
+- SSH.NET library
+
+## Getting Started
+
+1. Clone the repository: `git clone https://github.com/Amirkarimi02/sftp-implementation.git`
+2. Open the solution in Visual Studio or your preferred IDE.
+3. Restore the NuGet packages to ensure all dependencies are resolved.
+4. Build the solution to compile the code.
+
+## Configuration
+
+In order to connect to an SFTP server, you need to provide the following configuration settings:
+
+- SFTP server hostname or IP address
+- Port number
+- Username
+- Password
+
+To configure these settings, open the `appsettings.json` file located in the project directory and update the values accordingly:
+
+```json
+{
+  "SftpSettings": {
+    "Host": "your-sftp-server.com",
+    "Port": 22,
+    "Username": "your-username",
+    "Password": "your-password"
+  }
+}
+```
+
+## Usage
+
+The application provides a command-line interface to interact with the SFTP server. Here are the available commands:
+
+- `upload <localFilePath> <remoteFilePath>`: Uploads a file from the local machine to the specified remote location.
+- `download <remoteFilePath> <localFilePath>`: Downloads a file from the remote server to the specified local location.
+- `delete <remoteFilePath>`: Deletes a file from the remote server.
+- `rename <currentRemoteFilePath> <newRemoteFilePath>`: Renames a file on the remote server.
+- `createdir <remoteDirectoryPath>`: Creates a directory on the remote server.
+- `deletedir <remoteDirectoryPath>`: Deletes a directory from the remote server.
+
+Example usage:
+
+```bash
+dotnet run upload C:\local\file.txt /remote/file.txt
+dotnet run download /remote/file.txt C:\local\file.txt
+dotnet run delete /remote/file.txt
+dotnet run rename /remote/oldfile.txt /remote/newfile.txt
+dotnet run createdir /remote/newdirectory
+dotnet run deletedir /remote/directory
+```
+
+## Error Handling
+
+The application includes basic error handling for common scenarios, such as authentication failures or connection errors. However, it's recommended to add more robust error handling based on your specific needs.
+
+## Contributions
+
+Contributions to this project are welcome. If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+This project utilizes the [SSH.NET](https://github.com/sshnet/SSH.NET) library.
+
+## Contact
+
+For further assistance or inquiries, please contact [Amir Karimi](mailto:karimika13.ka@gmail.com).
+
+---
